@@ -7,3 +7,13 @@ if [ $? -ne 0 ]; then
 else
     echo "success"
 fi
+
+#获取CPU和memory
+#!/bin/sh
+while true
+do
+time=$(date "+%Y-%m-%d %H:%M:%S")
+echo "${time}" >> cpu_mem.txt
+top -b -n 1 |grep -E "CPU:|Mem:" >> cpu_mem.txt
+sleep 1
+done
